@@ -1,0 +1,16 @@
+<mat-card class="mat-card--container">
+    <h1>Products: {{categName}}</h1>
+    <div *ngIf="filteredProdData && !pageLoad" fxLayout="row wrap" fxLayoutGap="8px" fxLayoutAlign="start center">
+
+        <!-- Display Product detail card -->
+        <div *ngFor="let data of filteredProdData" fxFlex="24" fxFlex.lt-lg="32" fxFlex.lt-md="31" fxFlex.lt-sm="47" class="p-t-8"
+            (click)="selectItem(data)">
+            <app-product-card [productCardData]="data"></app-product-card>
+        </div>
+    </div>
+
+    <!-- Loader code -->
+    <div class="lds-container" *ngIf="!filteredProdData || pageLoad">
+        <div class="lds-hourglass"></div>
+    </div>
+</mat-card>

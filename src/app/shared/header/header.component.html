@@ -1,0 +1,60 @@
+<div fxLayoutAlign="center center">
+  <div class="header--container" (clickOutside)="toggleClose()">
+    <mat-toolbar class="header--container" ngClass.gt-sm="p-lr-40" fxLayout="row" fxLayoutAlign="space-between center">
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="header--container">
+        <div fxFlex="60" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+
+          <!-- Hamburger code -->
+          <div fxFlex="8" fxFlex.xs="25" fxLayout="row" fxLayoutAlign="start center" class="m-r-20">
+            <img class="img--menu-logo" src="assets/images/menu.svg" (click)="togglePreLogSidemenu()">
+          </div>
+
+          <!-- Mercari logo -->
+          <div fxFlex="42" fxFlex.xs="15">
+            <img fxHide.xs="true" src="assets/images/mercari-japan-logo.png" class="img--mercari-logo">
+            <img fxHide.gt-xs="true" src="assets/images/mercari-japan-logo-1.png" class="img--mercari-logo-1">
+          </div>
+
+          <!-- Search box -->
+          <div fxFlex="50" fxFlex.xs="60" fxLayout="row" class="pos-rel" fxHide.lt-md="true">
+            <input matinput class="input--search">
+            <div class="search-position pos-abs">
+              <img src="assets/images/search.svg" class="img--header-logo">
+            </div>
+          </div>
+        </div>
+
+
+        <div fxFlex="40" fxFlex.xs="100" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="8px">
+          <div class="header--login font-bold" (click)="loginError()">
+            {{loginLabel}} ||
+          </div>
+          <div>
+            <img src="assets/images/notification.svg" class="img--header-logo" (click)="iconClick('notif')">
+          </div>
+          <div>
+            <img src="assets/images/shopping-cart.svg" class="img--header-logo" (click)="iconClick('cart')">
+          </div>
+          <div fxHide.lt-md="true">
+            <img src="assets/images/facebook.svg" class="img--header-logo" (click)="iconClick('fb')">
+          </div>
+          <div fxHide.lt-md="true">
+            <img src="assets/images/instagram.svg" class="img--header-logo" (click)="iconClick('insta')">
+          </div>
+        </div>
+      </div>
+    </mat-toolbar>
+
+    <!-- side menu items -->
+    <div #plSidenav fxLayout="column" class="hamburger-menu" fxShow="true">
+      <div class="pos-abs">
+        <div class="menu--titlefont-bold p-l-8">Categories</div>
+        <ul class="mini-menu" fxLayout="column">
+          <li *ngFor="let item of categories; let i = index" class="menu-item img--zoom">
+            <div class="list--item" (click)="catSelect(item)">{{item.name}}</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<mat-card fxLayout="column" fxLayoutGap="8px" class="card--container">
+  <div class="prod--img-container pos-rel">
+    <img class="img--container loadingImg img--zoom" src="{{this.productCardData.image}}">
+    <div *ngIf="this.productCardData.is_sold_out" class="sold-pos pos-abs">
+      <img src="assets/images/sold.svg" class="img--sold">
+    </div>
+  </div>
+
+  <div class="prod--data-container">
+    <div class="prod--data-desc">
+      {{this.productCardData.description}}
+    </div>
+    <div class="prod--data-price-like" fxLayout="row" fxLayoutAlign="space-between center">
+      <div class="prod--data-price font-bold">
+        {{yen}}{{this.productCardData.price}}
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="4px">
+        <img src="assets/images/heart-white.svg" class="img--heart-white">
+        <span>{{this.productCardData.like_count}}</span>
+      </div>
+    </div>
+  </div>
+</mat-card>

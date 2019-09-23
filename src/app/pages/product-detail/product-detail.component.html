@@ -1,0 +1,89 @@
+<mat-card class="mat-card--container">
+  <div *ngIf="prodDetail">
+    <div>
+      <h1>Product detail</h1>
+      <h3 class="prod-detail-name">{{prodDetail.name}}</h3>
+    </div>
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="16px" fxLayoutGap.lt-md="8px">
+      <!-- Display product image -->
+      <div fxLayout="column" fxFlex="40" fxLayoutGap="16px" fxLayoutGap.lt-md="8px" class="detail-img-container">
+        <div class="pos-rel">
+          <img src="{{prodDetail.image}}" class="img--container detail-img">
+          <div *ngIf="prodDetail.is_sold_out" class="sold-pos pos-abs">
+            <img src="assets/images/sold.svg" class="img--sold">
+          </div>
+        </div>
+
+        <!-- display product name -->
+        <div>
+          <div class="prod-detail-name">{{prodDetail.name}}</div>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <div>
+            <mat-chip-list>
+              <mat-chip class="chip--prod-name">
+                <img src="assets/images/heart-white.svg" class="img--heart-white m-r-20">
+                <span>{{this.prodDetail.like_count}} likes</span>
+              </mat-chip>
+            </mat-chip-list>
+          </div>
+          <div>
+            <img src="assets/images/share.svg" class="img--heart-white">
+          </div>
+        </div>
+      </div>
+
+
+      <div fxFlex="40" class="detail-data-container" fxLayout="column" fxLayoutGap="16px">
+        <div>
+          <h3>Product Description:</h3>
+          <div>{{prodDetail.description}}</div>
+        </div>
+        <div fxLayout="row" fxHide.xs="true" fxLayoutGap="4px" fxLayoutAlign="start end">
+          <div class="detail-amount font-bold">
+            {{yen}}{{prodDetail.price}}
+          </div>
+          <div class="ship-fee">
+            {{prodDetail.shipping_fee}}
+          </div>
+        </div>
+        <div fxLayout="row" fxHide.xs="true" fxLayoutGap="16px" fxLayoutGap.lt-md="8px" fxLayoutAlign="start center">
+          <button mat-raised-button class="button--buy-now">BUY NOW</button>
+          <button mat-raised-button>ADD TO CART</button>
+        </div>
+      </div>
+
+      <!-- Display news ticker -->
+      <div fxFlex="20" fxFlex.md="100" *ngIf="liveNews" class="live-news-container">
+        <h3>Today's News:</h3>
+        <swiper [config]="LIVE_NEWS" (startAutoplay)="true">
+          <div *ngFor="let data of newsData">
+            <app-news-card [newsData]="data"></app-news-card>
+          </div>
+        </swiper>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loader code -->
+  <div class="lds-container" *ngIf="!prodDetail">
+    <div class="lds-hourglass"></div>
+  </div>
+</mat-card>
+
+<!-- Mobile overlay -->
+<div *ngIf="prodDetail" fxHide.gt-xs="true" class="action-mobile-overlay" fxLayout="column" fxLayoutGap="16px">
+  <div fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="start end">
+    <div class="detail-amount font-bold">
+      {{yen}}{{prodDetail.price}}
+    </div>
+    <div class="ship-fee">
+      {{prodDetail.shipping_fee}}
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutGap="16px" fxLayoutGap.lt-md="8px" fxLayoutAlign="start center">
+    <button mat-raised-button class="button--buy-now">BUY NOW</button>
+    <button mat-raised-button>ADD TO CART</button>
+  </div>
+</div>

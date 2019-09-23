@@ -1,0 +1,22 @@
+<div fxLayout="column" fxLayoutGap="8px">
+
+  <!-- Display news title -->
+  <div class="news-title font-bold">
+    {{newsData.title}}
+  </div>
+
+  <!-- Display Image -->
+  <div>
+    <img src="{{newsData.urlToImage}}" class="img--news-card">
+  </div>
+
+  <!-- Display Link to news and URL -->
+  <div fxLayout="row" fxLayoutAlign="space-between center ">
+    <div class="news-desc">
+      <a href="{{newsData.url}}">Read more..</a>
+    </div>
+    <div class="news-published">
+      Published on: {{newsData.publishedAt | convertUTC}}
+    </div> 
+  </div>
+</div>
