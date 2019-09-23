@@ -1,5 +1,3 @@
-Hello! Thanks for the opportunity for letting me take up the Frontend Skill test.
-
 Release notes:
 
 App name: Mercariv1
