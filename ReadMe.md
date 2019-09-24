@@ -62,9 +62,9 @@ II. Technical features:
 
 III. Known issues
 
-    1. The api server doesnot return data encoded with UTF-8 or UTF-16., hence the Japanese texts are receieved as garbage values, and the same has been displayed. Created an issue already. (https://github.com/m-rec/97065ad8e508a300c3d6d0b43600345ada74aba2/issues/3)
-    2. There will be no search box in tab and mobile view, shall be released in next version, if provided time.
-
+    1. The api server doesnot return data encoded with UTF-8 or UTF-16., hence the Japanese texts are receieved as garbage values, and the same has been displayed.
+    2. There will be no search box in tab and mobile view.
+    
 IV. Pre-requisites
 
 To run this application, following are the pre-requisites
